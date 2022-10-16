@@ -24,6 +24,7 @@ function TodoList() {
 
   return (
     <>
+      <h1 className="todos-heading">todos</h1>
       <div className="todos-section">
         <div className="todos">
           <TodoInput

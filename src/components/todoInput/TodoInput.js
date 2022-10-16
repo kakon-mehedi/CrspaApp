@@ -12,11 +12,11 @@ function TodoInput({
   updateTodo,
   setUpdateTodo,
 }) {
-  const handleInput = (e) => {
+  const handleInputChange = (e) => {
     setTodo(e.target.value);
   };
 
-  const handleAddTodo = () => {
+  const handleAddTodoClick = (e) => {
     if (todo !== "") {
       setTodos((prev) => [
         ...prev,
@@ -63,8 +63,12 @@ function TodoInput({
         </div>
       ) : (
         <div className="add-todos">
-          <input type="text" className="todo-input" onChange={handleInput} />
-          <button className="add-todo-btn" onClick={handleAddTodo}>
+          <input
+            type="text"
+            className="todo-input"
+            onChange={handleInputChange}
+          />
+          <button className="add-todo-btn" onClick={handleAddTodoClick}>
             Add Todo
           </button>
         </div>
