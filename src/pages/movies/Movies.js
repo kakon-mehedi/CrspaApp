@@ -26,7 +26,7 @@ function Jobs() {
     if (searchQuery !== "") {
       setFetchUrl(SEARCH_URL);
     } else {
-      setSearchQuery(MOVIE_DATA_URL);
+      setFetchUrl(MOVIE_DATA_URL);
     }
   }, [searchQuery]);
 

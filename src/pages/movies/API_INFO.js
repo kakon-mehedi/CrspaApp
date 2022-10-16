@@ -8,6 +8,3 @@ export const SEARCH_BASE_URL = `https://api.themoviedb.org/3/search/movie?api_ke
 
 export const MOVIE_DATA_URL = API_BASE_URL + QUERY;
 export const IMG_URL = IMG_BASE_URL + IMG_FILE_SIZE;
-
-//SEARCH FULL QUEARY
-//https://api.themoviedb.org/3/search/company?api_key=kakon&query=dintheday&page=1";
