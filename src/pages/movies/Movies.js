@@ -1,5 +1,6 @@
 import React, { useEffect, useReducer, useState } from "react";
 import Navbar from "../../components/navbar/Navbar";
+import Pagination from "../../components/pagination/Pagination";
 import { IMG_URL, MOVIE_DATA_URL, SEARCH_BASE_URL } from "./API_INFO";
 import { INITIAL_STATE, movieReducer } from "./MovieReducer";
 
@@ -9,19 +10,19 @@ function Jobs() {
   const [state, dispatch] = useReducer(movieReducer, INITIAL_STATE);
   const [searchQuery, setSearchQuery] = useState("");
   const [fetchUrl, setFetchUrl] = useState(MOVIE_DATA_URL);
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     dispatch({ type: "FETCH_START" });
-    fetch(searchQuery ? fetchUrl : MOVIE_DATA_URL)
+    fetch(searchQuery ? fetchUrl : MOVIE_DATA_URL + currentPage)
       .then((res) => res.json())
       .then((data) => dispatch({ type: "FETCH_SUCCESS", payload: data }))
       .catch((error) => dispatch({ type: "FETCH_ERROR" }));
-  }, [searchQuery]);
+  }, [searchQuery, fetchUrl, currentPage]);
 
   useEffect(() => {
     const SEARCH_URL =
       SEARCH_BASE_URL + searchQuery + "&page=1&include_adult=false";
-    console.log(searchQuery);
 
     if (searchQuery !== "") {
       setFetchUrl(SEARCH_URL);
@@ -62,6 +63,7 @@ function Jobs() {
             </div>
           ))}
       </div>
+      <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} />
     </div>
   );
 }

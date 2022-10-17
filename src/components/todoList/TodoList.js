@@ -7,7 +7,7 @@ import "./todoList.css";
 function TodoList() {
   const [isUpdate, setIsUpdate] = useState(false);
   const [currentTodo, setCurrentTodo] = useState([]);
-  const [todo, setTodo] = useState({});
+  const [todo, setTodo] = useState("");
   const [updateTodo, setUpdateTodo] = useState({});
   const [todos, setTodos] = useState(() => {
     const savedTodos = localStorage.getItem("todos");
@@ -20,7 +20,7 @@ function TodoList() {
 
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos]);
+  }, [todos, currentTodo]);
 
   return (
     <>

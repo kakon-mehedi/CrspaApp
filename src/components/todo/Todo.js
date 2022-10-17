@@ -10,13 +10,14 @@ function Todo({
   setIsUpdate,
   setCurrentTodo,
 }) {
-  const deleteTodo = (id) => {
+  const deleteTodoClick = (id) => {
     const remainingData = todos.filter((todo) => todo.id !== id);
     setTodos(remainingData);
   };
 
-  const editTodo = (todo) => {
+  const editTodoClick = (todo) => {
     //const currentData = todos.filter((todo) => todo.id === id);
+
     setCurrentTodo({ ...todo });
     setIsUpdate(true);
   };
@@ -25,8 +26,11 @@ function Todo({
     <>
       <li className="todo-list-item">
         <div className="todo-text">{todo.text}</div>
-        <Delete className="todo-icon" onClick={() => deleteTodo(todo.id)} />
-        <Create className="todo-icon" onClick={() => editTodo(todo)} />
+        <Delete
+          className="todo-icon"
+          onClick={() => deleteTodoClick(todo.id)}
+        />
+        <Create className="todo-icon" onClick={() => editTodoClick(todo)} />
       </li>
     </>
   );

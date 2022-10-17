@@ -16,6 +16,10 @@ function TodoInput({
     setTodo(e.target.value);
   };
 
+  const handleUpdateInputChange = (e) => {
+    setCurrentTodo({ ...currentTodo, text: e.target.value });
+  };
+
   const handleAddTodoClick = (e) => {
     if (todo !== "") {
       setTodos((prev) => [
@@ -26,16 +30,12 @@ function TodoInput({
         },
       ]);
     }
-
     setTodo("");
   };
 
-  const handleUpdateInput = (e) => {
-    setCurrentTodo({ ...currentTodo, text: e.target.value });
-  };
-
-  const handleUpdate = () => {
+  const handleUpdateClick = () => {
     handleUpdateTodo(currentTodo.id, currentTodo);
+    //document.getElementById("todo-input-id").value = "";
   };
 
   const handleUpdateTodo = (id, updatedTodo) => {
@@ -54,10 +54,10 @@ function TodoInput({
           <input
             type="text"
             className="todo-input"
-            onChange={handleUpdateInput}
-            defaultValue={currentTodo.text}
+            onChange={handleUpdateInputChange}
+            value={currentTodo.text}
           />
-          <button className="add-todo-btn" onClick={handleUpdate}>
+          <button className="add-todo-btn" onClick={handleUpdateClick}>
             Update
           </button>
         </div>
@@ -66,7 +66,9 @@ function TodoInput({
           <input
             type="text"
             className="todo-input"
+            id="todo-input-id"
             onChange={handleInputChange}
+            value={todo}
           />
           <button className="add-todo-btn" onClick={handleAddTodoClick}>
             Add Todo
