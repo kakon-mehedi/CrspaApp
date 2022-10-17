@@ -17,18 +17,24 @@
   cursor: pointer;
   font-size: 24px;
   font-weight: 700;
+  color: lightgray;
+  text-decoration: none;
 }
 
 .navbar-list {
   height: 50px;
   display: flex;
   align-items: center;
-  list-style-type: none;
-  color: lightgray;
 }
 
 .navbar-item {
   cursor: pointer;
   font-weight: bold;
   margin-left: 15px;
+  color: lightgray;
+  text-decoration: none;
+}
+
+nav .active {
+  color: rgb(182, 117, 247);
 }
