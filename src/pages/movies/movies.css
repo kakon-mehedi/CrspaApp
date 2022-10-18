@@ -17,7 +17,8 @@
 
 .movie-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-auto-flow: dense;
 }
 
 .movie {
@@ -70,4 +71,26 @@
 .movie-title {
   padding: 20px;
   font-size: 1rem;
+}
+
+@media (min-width: 320px) {
+  .search-section {
+    width: 100%;
+  }
+}
+@media (min-width: 481px) {
+}
+@media (min-width: 641px) {
+}
+@media (min-width: 961px) {
+}
+@media (min-width: 1025px) {
+  .search-section {
+    width: 60%;
+  }
+}
+@media (min-width: 1281px) {
+  .search-section {
+    width: 50%;
+  }
 }

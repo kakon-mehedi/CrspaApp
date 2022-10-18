@@ -23,3 +23,26 @@ body {
   width: 60%;
   margin: 0 auto;
 }
+
+@media (min-width: 320px) {
+  .container {
+    height: 100vh;
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 481px) {
+}
+@media (min-width: 641px) {
+  .container {
+    height: 100vh;
+    width: 60%;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 961px) {
+}
+@media (min-width: 1025px) {
+}
+@media (min-width: 1281px) {
+}

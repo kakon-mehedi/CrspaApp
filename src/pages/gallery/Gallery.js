@@ -8,7 +8,7 @@ import { imagesReducer, INITIAL_STATE } from "./GalleryReducer";
 
 function Gallery() {
   const [state, dispatch] = useReducer(imagesReducer, INITIAL_STATE);
-  const [query, setQuery] = useState("horse");
+  const [query, setQuery] = useState("dog");
   const [fetchUrl, setFetchUrl] = useState(null);
 
   useEffect(() => {
@@ -34,7 +34,6 @@ function Gallery() {
   return (
     <div className="container">
       <Navbar />
-      {console.log(state)}
       {state.isLoading ? (
         // <img src="../../../public/images/loading.gif" alt="loadingImg" />
         <h1>Loading...</h1>
@@ -54,14 +53,13 @@ function Gallery() {
       <div className="images-container">
         {state.images.results &&
           Object.values(state.images.results).map((imgLink, index) => (
-            <div className="gallery" key={index}>
-              <ModalImage
-                small={imgLink.urls.regular}
-                large={imgLink.urls.regular}
-                alt="horsePhoto"
-                className="gallery-img"
-              />
-            </div>
+            <ModalImage
+              key={index}
+              small={imgLink.urls.regular}
+              large={imgLink.urls.regular}
+              alt="horsePhoto"
+              className="gallery-img"
+            />
           ))}
       </div>
     </div>

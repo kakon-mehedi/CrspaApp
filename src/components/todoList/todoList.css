@@ -61,3 +61,25 @@
   -ms-transition: height 1s ease-in-out;
   -o-transition: height 1s ease-in-out;
 }
+
+@media (min-width: 320px) {
+  .todos-section {
+    width: 100%;
+  }
+}
+@media (min-width: 481px) {
+}
+@media (min-width: 641px) {
+}
+@media (min-width: 961px) {
+}
+@media (min-width: 1025px) {
+  .todos-section {
+    width: 60%;
+  }
+}
+@media (min-width: 1281px) {
+  .todos-section {
+    width: 50%;
+  }
+}
